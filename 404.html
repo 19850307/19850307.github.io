@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>404 — 19850307.xyz</title>
+
+    <meta name="description" content="There is no such page on 19850307.xyz." />
+    <meta name="robots" content="noindex, follow" />
+    <meta name="theme-color" content="#f3f2ed" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <header class="topbar">
+      <span>sys://19850307</span>
+      <span class="topbar__mid">[ error handler ]</span>
+      <span><i class="led" aria-hidden="true"></i>online</span>
+    </header>
+
+    <main class="stage">
+      <img
+        class="wordmark wordmark--404"
+        src="wordmark-404.svg"
+        width="360"
+        height="160"
+        alt="404"
+      />
+
+      <p class="tagline">// signal lost //</p>
+      <p class="sub">
+        This page does not exist. Check the address or head back to the main
+        page.
+      </p>
+
+      <a class="btn" href="/">◄ back home</a>
+    </main>
+
+    <footer class="foot">
+      <span id="copyright">© 19850307.xyz</span>
+      <span class="foot__note">error 404 :: page not found</span>
+    </footer>
+
+    <script>
+      (function () {
+        var copyright = document.getElementById("copyright");
+        if (copyright) {
+          copyright.textContent = "© " + new Date().getFullYear() + " 19850307.xyz";
+        }
+      })();
+    </script>
+  </body>
+</html>

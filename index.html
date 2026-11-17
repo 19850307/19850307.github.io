@@ -1,64 +1,91 @@
 <!doctype html>
-<html lang="ru">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Заметки о кластере</title>
-<meta name="description" content="Небольшой домашний кластер: виртуализация, хранилище, мониторинг и резервное копирование.">
-<style>
-  :root { --bg:#f5f6f4; --fg:#1f2321; --muted:#68706b; --line:#d9ddd8; --accent:#2f6f5e; --code:#e9ece8; }
-  @media (prefers-color-scheme: dark) { :root { --bg:#151816; --fg:#e6eae7; --muted:#9aa39d; --line:#2c312e; --accent:#6cc0a6; --code:#1f2421; } }
-  * { box-sizing:border-box; }
-  body { margin:0; background:var(--bg); color:var(--fg); font:17px/1.65 -apple-system, "Segoe UI", Roboto, sans-serif; }
-  main { max-width:680px; margin:0 auto; padding:64px 20px 80px; }
-  header h1 { font-size:28px; margin:0 0 4px; }
-  header p { margin:0; color:var(--muted); }
-  hr { border:0; border-top:1px solid var(--line); margin:36px 0; }
-  article { margin:0 0 34px; }
-  article time { display:block; font-size:13px; color:var(--muted); text-transform:uppercase; letter-spacing:.08em; }
-  article h2 { font-size:20px; margin:4px 0 8px; }
-  article p { margin:0 0 8px; }
-  code { background:var(--code); padding:1px 5px; border-radius:4px; font:14px/1.4 ui-monospace, Menlo, Consolas, monospace; }
-  ul { margin:6px 0 0; padding-left:20px; }
-  footer { color:var(--muted); font-size:13px; }
-</style>
-</head>
-<body>
-<main>
-  <header>
-    <h1>Заметки о кластере</h1>
-    <p>Небольшой кластер из нескольких узлов: как он устроен и что на нём работает.</p>
-  </header>
-  <hr>
-  <article>
-    <time datetime="2026-10-28">28 октября 2026</time>
-    <h2>Мониторинг: агенты, шаблоны и тишина в чатах</h2>
-    <p>Метрики со всех машин собираются в одном месте: загрузка, диски, температура, состояние сервисов. Шаблоны общие, поэтому новый узел подключается за пару минут.</p>
-    <p>Главное правило — алерт должен требовать действия. Всё остальное уходит в графики, а не в уведомления.</p>
-  </article>
-  <article>
-    <time datetime="2026-09-14">14 сентября 2026</time>
-    <h2>Резервное копирование по правилу 3-2-1</h2>
-    <p>Три копии данных, два разных носителя, одна копия вне площадки. Ночные снапшоты хранятся неделю, недельные — квартал.</p>
-    <ul>
-      <li>проверка восстановления раз в месяц, а не «когда понадобится»;</li>
-      <li>отдельная учётная запись для бэкапов без прав на удаление;</li>
-      <li>отчёт о каждом задании в мониторинг.</li>
-    </ul>
-  </article>
-  <article>
-    <time datetime="2026-08-02">2 августа 2026</time>
-    <h2>Порядок с первого дня</h2>
-    <p>Единообразные имена машин, одинаковая базовая настройка и фаервол, который по умолчанию закрыт. Всё, что открыто наружу, записано и имеет причину.</p>
-    <p>Обновления ставятся по расписанию, а изменения конфигурации хранятся в git — так проще понять, что и когда сломалось.</p>
-  </article>
-  <article>
-    <time datetime="2026-06-19">19 июня 2026</time>
-    <h2>Хранилище: почему NVMe и ZFS</h2>
-    <p>Для виртуальных машин важнее задержки, чем объём. NVMe-диски в зеркале под ZFS дают предсказуемую скорость, а снапшоты делаются мгновенно и почти ничего не стоят.</p>
-  </article>
-  <hr>
-  <footer>Заметки пополняются по мере изменений в кластере.</footer>
-</main>
-</body>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>19850307.xyz — under construction</title>
+
+    <meta name="description" content="19850307.xyz is being rebuilt. Check back soon." />
+    <meta name="robots" content="noindex, follow" />
+    <meta name="theme-color" content="#f3f2ed" />
+    <link rel="canonical" href="https://19850307.xyz/" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="19850307.xyz" />
+    <meta property="og:title" content="19850307.xyz — under construction" />
+    <meta property="og:description" content="The site is being rebuilt. Check back soon." />
+    <meta property="og:url" content="https://19850307.xyz/" />
+    <meta property="og:locale" content="en_US" />
+    <meta name="twitter:card" content="summary" />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <header class="topbar">
+      <span>sys://19850307</span>
+      <span class="topbar__mid">[ maintenance ]</span>
+      <span><i class="led" aria-hidden="true"></i>online</span>
+    </header>
+
+    <main class="stage">
+      <img
+        class="wordmark"
+        src="wordmark.svg"
+        width="720"
+        height="80"
+        alt="19850307.xyz"
+      />
+
+      <p class="tagline">// site under construction //</p>
+      <p class="sub">
+        The old notes are offline for now while the site is rebuilt. Check back
+        soon.
+      </p>
+
+      <div
+        class="bar"
+        role="progressbar"
+        aria-label="Build progress"
+        aria-valuemin="0"
+        aria-valuemax="100"
+        aria-valuenow="35"
+      >
+        <div class="bar__fill"></div>
+      </div>
+
+      <p class="status">
+        loading units <span id="percent">35</span>%
+        <span class="status__cursor" aria-hidden="true">▌</span>
+      </p>
+    </main>
+
+    <footer class="foot foot--single">
+      <span id="copyright">© 19850307.xyz</span>
+    </footer>
+
+    <script>
+      (function () {
+        var copyright = document.getElementById("copyright");
+        if (copyright) {
+          copyright.textContent = "© " + new Date().getFullYear() + " 19850307.xyz";
+        }
+
+        var fill = document.querySelector(".bar__fill");
+        var percent = document.getElementById("percent");
+        var bar = document.querySelector(".bar");
+        if (!fill || !percent) return;
+
+        var value = 35;
+        window.setInterval(function () {
+          value += 7;
+          if (value > 100) value = 0;
+          fill.style.width = value + "%";
+          percent.textContent = (value < 10 ? "0" : "") + value;
+          if (bar) bar.setAttribute("aria-valuenow", String(value));
+        }, 450);
+      })();
+    </script>
+  </body>
 </html>

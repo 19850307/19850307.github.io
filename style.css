@@ -1,0 +1,255 @@
+/* ============================================================
+   19850307.xyz — light placeholder
+   Paper-white retro interface: chunky ink borders, pixel wordmark,
+   monospaced labels. No images besides the two SVGs, no dependencies.
+   ============================================================ */
+
+:root {
+  color-scheme: light;
+
+  --paper: #f3f2ed;
+  --paper-2: #ffffff;
+  --ink: #1b1b22;
+  --muted: #5c5c66;
+  --dim: #8c8c95;
+  --hair: rgba(27, 27, 34, 0.12);
+  --accent: #0b7a52;
+  --accent-soft: #d9efe4;
+
+  --mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  background-color: var(--paper);
+  color: var(--ink);
+  font-family: var(--mono);
+  font-size: 14px;
+  line-height: 1.5;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---------- top bar / footer ---------- */
+
+.topbar,
+.foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px clamp(12px, 3vw, 26px);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  flex-wrap: wrap;
+}
+
+.topbar {
+  border-bottom: 4px solid var(--ink);
+}
+
+.topbar__mid {
+  color: var(--dim);
+}
+
+.led {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-right: 6px;
+  background: var(--accent);
+  vertical-align: baseline;
+  animation: led 1.6s steps(1, end) infinite;
+}
+
+@keyframes led {
+  0%,
+  60% {
+    opacity: 1;
+  }
+  61%,
+  100% {
+    opacity: 0.35;
+  }
+}
+
+.foot {
+  border-top: 4px solid var(--ink);
+  color: var(--dim);
+}
+
+/* одна строка в подвале — по центру */
+.foot--single {
+  justify-content: center;
+}
+
+/* ---------- stage ---------- */
+
+.stage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(14px, 2.6vw, 26px);
+  padding: clamp(24px, 6vw, 56px) clamp(16px, 4vw, 32px);
+  text-align: center;
+}
+
+.wordmark {
+  display: block;
+  width: min(100%, 720px);
+  height: auto;
+  image-rendering: pixelated;
+}
+
+.tagline {
+  margin: 0;
+  font-size: clamp(11px, 2.4vw, 15px);
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.sub {
+  margin: 0;
+  max-width: 46ch;
+  font-size: clamp(12px, 2.2vw, 14px);
+  color: var(--muted);
+  text-wrap: balance;
+}
+
+/* ---------- progress ---------- */
+
+.bar {
+  position: relative;
+  width: min(100%, 640px);
+  height: 26px;
+  padding: 3px;
+  border: 3px solid var(--ink);
+  background: var(--paper-2);
+  box-shadow: 6px 6px 0 rgba(27, 27, 34, 0.14);
+  margin-top: 6px;
+}
+
+.bar__fill {
+  height: 100%;
+  width: 35%;
+  background-image: repeating-linear-gradient(
+    90deg,
+    var(--accent) 0 8px,
+    transparent 8px 12px
+  );
+  transition: width 0.3s steps(4, end);
+}
+
+.status {
+  margin: 0;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.status__cursor {
+  animation: caret 1s steps(1, end) infinite;
+}
+
+@keyframes caret {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  51%,
+  100% {
+    opacity: 0;
+  }
+}
+
+/* ---------- 404 ---------- */
+
+.wordmark--404 {
+  width: min(100%, 360px);
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 6px;
+  padding: 12px 20px;
+  border: 3px solid var(--ink);
+  background: transparent;
+  color: var(--ink);
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-decoration: none;
+  box-shadow: 6px 6px 0 rgba(27, 27, 34, 0.16);
+  transition:
+    transform 0.12s steps(2, end),
+    box-shadow 0.12s steps(2, end),
+    background-color 0.12s steps(2, end),
+    color 0.12s steps(2, end);
+}
+
+.btn:hover {
+  transform: translate(-2px, -2px);
+  background: var(--ink);
+  color: var(--paper);
+  box-shadow: 9px 9px 0 rgba(27, 27, 34, 0.2);
+}
+
+.btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 rgba(27, 27, 34, 0.2);
+}
+
+/* ---------- misc ---------- */
+
+::selection {
+  background: var(--accent);
+  color: #ffffff;
+}
+
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+@media (max-width: 640px) {
+  .topbar__mid {
+    display: none;
+  }
+
+  .foot__note {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .led,
+  .status__cursor {
+    animation: none !important;
+  }
+
+  .bar__fill {
+    transition: none;
+  }
+}
